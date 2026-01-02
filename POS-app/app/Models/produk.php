@@ -15,10 +15,11 @@ class produk extends Model
         'fotoMenu',
         'jmlStok',
         'hargaMenu',
-        'status'
+        'statusMenu'
     ];
 
     public function menuKategori() {
-        return $this->belongsTo(menuKategori::class, 'idKategori', 'idKategori');
+        return $this->belongsTo(menuKategori::class, 'id_kategori', 'idKategori');
     }
+
 }

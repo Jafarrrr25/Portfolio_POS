@@ -6,6 +6,9 @@ use App\Models\branch;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
+use App\Http\Controllers\Admin\Menu\MenuKategoriController;
+use App\Http\Controllers\MenuKategoriController as ControllersMenuKategoriController;
+use App\Http\Controllers\Admin\Menu\ProdukController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', function () {
@@ -22,9 +25,14 @@ Route::middleware('auth:branch')->group(function() {
 });
 
 // Role admin 
-Route::middleware('auth:pegawai')->group(function () {
-    Route::get('admin/dashboard', fn() =>
+Route::middleware('auth:pegawai')->prefix('admin')->group(function () {
+    Route::get('/dashboard', fn() =>
     inertia('dashboard'))->name('admin.dashboard');
+
+    Route::get('/menu', fn () =>
+    inertia('admin/Menu/produk/index'))->name('menu.index');
+    Route::resource('produk', ProdukController::class)->only(['index', 'destroy']);
+
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 

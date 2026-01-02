@@ -39,7 +39,7 @@ export default function AuthenticatedLayout({
                         </button>
                     </header>
                  {/* isi konten */}
-                  <main className="p-6 min-h[calc(100vh-3.5rem)] flex dark:text-neutral-100 text-neutral-800 shrink-0">
+                  <main className="p-10 min-h[calc(100vh-3.5rem)] flex dark:text-neutral-100 text-neutral-800 shrink-0">
                      {children}
                 
                  </main>

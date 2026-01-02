@@ -16,6 +16,6 @@ class menuKategori extends Model
     ];
 
     public function produk() {
-        return $this->hasMany(produk::class, 'idProduk', 'idProduk');
+        return $this->hasMany(produk::class, 'id_kategori', 'idKategori');
     }
 }

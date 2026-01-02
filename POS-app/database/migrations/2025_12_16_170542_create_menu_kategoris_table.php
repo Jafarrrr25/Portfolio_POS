@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('menuKategori', function (Blueprint $table) {
             $table->id('idKategori');
             $table->string('jenis', 20);
+            $table->integer('jmlProduk');
             $table->timestamps();
         });
     }
