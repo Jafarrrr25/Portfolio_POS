@@ -113,7 +113,11 @@ export default function SidebarDashboard({
 
                 {/* Menu */}
                 <nav className="flex-1 p-2 space-y-1 overflow-hidden ">
-                    <NavItem href="/dashboard" icon={LayoutDashboard} label="Dashboard" mini={mini} />
+                    {isAdmin && (
+                        <>
+                        <NavItem href="/admin/dashboard" icon={LayoutDashboard} label="Dashboard" mini={mini} />
+                        </>
+                    )}
                     <NavItem href="/kasir" icon={ScanLine} label="Kasir" mini={mini} />
                     <NavItem href="/penjualan" icon={BarChart} label="Rekap Penjualan" mini={mini} />
                     <NavItem href="/bahan" icon={Package} label="Rekap Bahan" mini={mini} />
@@ -127,8 +131,8 @@ export default function SidebarDashboard({
                     {/* tambahan menu  */}
                     {isAdmin && (
                         <>
-                        <NavItem href="/pegawai" icon={Users} label="Pegawai" mini={mini} />
-                        <NavItem href="/manajemen-menu" icon={Layers} label="Manajemen Menu" mini={mini} />
+                        <NavItem href="/admin/pegawai" icon={Users} label="Pegawai" mini={mini} />
+                        <NavItem href="/admin/menu" icon={Layers} label="Manajemen Menu" mini={mini} />
                         </>
                     )}
                     <NavItem href="/settings" icon={Settings} label="Pengaturan Menu" mini={mini} />
